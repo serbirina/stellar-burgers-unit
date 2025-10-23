@@ -26,7 +26,7 @@ public class BurgerGetReceiptParameterizedTest {
         this.typeOfIngredient = typeOfIngredient;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Get receipt test data: bun - {0}, ingredient - {1}, type of ingredient - {2}")
     public static Object[][] getParameters() {
         return new Object[][]{
                 {"black bun", List.of("cutlet"), List.of(FILLING)},

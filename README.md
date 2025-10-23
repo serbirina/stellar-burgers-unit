@@ -15,18 +15,26 @@ The tests are implemented using Java, JUnit, and Mockito, and generate JaCoCo re
 ---
 ## Run Tests
 To run tests:  
-`mvn clean test`
+```
+mvn clean test
+```
 ---
 ## JaCoCo Report
 
 ### Open an Already Generated Report
 To open an already generated report, run:
 - MacOs:
-  `open target/site/jacoco/index.html`
+```
+open target/site/jacoco/index.html
+```
 
 - Windows:
-  `start target\site\jacoco\index.html`
+```
+start target\site\jacoco\index.html
+```
 
 ### Generate New Report
 After running all tests, a new JaCoCo report can be generated: 
-`mvn jacoco:report`
+```
+mvn jacoco:report
+```

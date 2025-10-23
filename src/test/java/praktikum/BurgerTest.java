@@ -1,10 +1,12 @@
 package praktikum;
 
-import org.junit.Assert;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -15,15 +17,18 @@ public class BurgerTest {
     @Test
     public void setBunsTest() {
         burger.setBuns(bun);
-        Assert.assertEquals(bun, burger.bun);
+        assertEquals(bun, burger.bun);
     }
 
     @Test
     public void addIngredientTest() {
         burger.addIngredient(ingredient);
 
-        Assert.assertEquals(1, burger.ingredients.size());
-        Assert.assertEquals(ingredient, burger.ingredients.get(0));
+        SoftAssertions soft = new SoftAssertions();
+
+        soft.assertThat(burger.ingredients.size()).isEqualTo(1);
+        soft.assertThat(burger.ingredients.get(0)).isSameAs(ingredient);
+        soft.assertAll();
     }
 
     @Test
@@ -34,8 +39,11 @@ public class BurgerTest {
 
         burger.removeIngredient(1);
 
-        Assert.assertEquals(1, burger.ingredients.size());
-        Assert.assertSame(ingredient, burger.ingredients.get(0));
+        SoftAssertions soft = new SoftAssertions();
+
+        soft.assertThat(burger.ingredients.size()).isEqualTo(1);
+        soft.assertThat(burger.ingredients.get(0)).isSameAs(ingredient);
+        soft.assertAll();
     }
 
     @Test
@@ -46,8 +54,11 @@ public class BurgerTest {
 
         burger.moveIngredient(1, 0);
 
-        Assert.assertEquals(2, burger.ingredients.size());
-        Assert.assertSame(ingredient2, burger.ingredients.get(0));
-        Assert.assertSame(ingredient, burger.ingredients.get(1));
+        SoftAssertions soft = new SoftAssertions();
+
+        soft.assertThat(burger.ingredients.size()).isEqualTo(2);
+        soft.assertThat(burger.ingredients.get(0)).isSameAs(ingredient2);
+        soft.assertThat(burger.ingredients.get(1)).isSameAs(ingredient);
+        soft.assertAll();
     }
 }
