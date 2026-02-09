@@ -1,5 +1,4 @@
-# stellar-burgers-unit
-## Automated Unit Tests for "Stellar Burgers"
+# Automated Unit Tests for "Stellar Burgers"
 Automated unit tests cover the methods in the `Burger` class.  
 The tests are implemented using Java, JUnit, and Mockito, and generate JaCoCo reports.
 ---
